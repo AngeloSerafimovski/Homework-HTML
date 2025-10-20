@@ -1,0 +1,119 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.productimg {
+  width: 300px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.Rating {
+  width: 30px;
+}
+.card {
+  width: fit-content;
+  border: 1px solid;
+  border-radius: 24px;
+  text-align: center;
+  background-color: rgb(255, 253, 251);
+  box-shadow: 0px 0px 15px 5px rgb(139, 133, 122);
+}
+.btn {
+  border: none;
+  width: 100%;
+
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding: 10px;
+  background-color: rgb(104, 104, 245);
+}
+.card-info {
+  padding: 14px;
+}
+.btn:hover {
+  background-color: red;
+}
+.card:hover {
+  transform: scale(110%);
+}
+
+
+
+
+
+.maincard {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  width: fit-content;
+  background-color: antiquewhite;
+  border-radius: 10%;
+  box-shadow: 0px 0px 15px 5px rgb(139, 133, 122);
+}
+
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cardinfo2{
+  padding: 25px;
+}
+.productimg2 {
+  width: 300px;
+  padding: 12px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-top: 50px;
+
+}
+
+.choose-color {
+  text-align: center;
+ margin-bottom: 30px;
+ margin-top: 50px;
+}
+
+.choose-color p {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.color-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.color-btn {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.color-btn:hover {
+  transform: scale(1.2);
+}
+.paragraf{
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+
+}
+.btn2{
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 200px;
+  height: 55px;
+  background-color: rgb(251, 250, 250);
+  border: none;
+  border-radius: 10%;
+}
+.btn2:hover{
+  cursor: pointer;
+transform: scale(1.1);
+}

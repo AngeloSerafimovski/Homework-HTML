@@ -1,0 +1,158 @@
+.body{
+  font-family: 'Inter', sans-serif;
+}
+
+.container{
+    border: 1px solid black;
+    width: 1250px;
+    height: 680px;
+    padding: 40px;
+    background-color:rgb(15, 15, 15);
+    border-radius: 25px;
+    box-shadow: 5px 5px 8px 3px;
+}
+.card1{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 460px;
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+}
+
+.card1 .footer1 img{
+    width:100%;
+    height: 97%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.header1{
+    width: 640px;
+   display: block;
+   justify-content: center;
+}
+.header1 h3{
+    display: flex;
+    justify-content: center;
+}
+.spacing{
+ display: flex; 
+ /*Mozev i so justify content space-between ama mi doagjaa mn razdeleni. Sakav jas da odredam razmah izmegju */
+ gap: 75px;
+ height: 100%;
+ display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+.divleft{
+    height: 200px;
+}
+.card2{
+    width: fit-content;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    height: 240px;
+    box-sizing: border-box;
+    padding: 10px;
+    
+}
+.card2 img{
+    width: 50%;
+    height: 50%;
+    border-radius: 12px;
+}
+.card2 h3{
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 500px;
+    padding: 10px;
+}
+.card3{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 170px;
+    padding: 10px;
+}
+.card3 h3{
+    display: flex;
+    justify-content: center;
+}
+.card3 img{
+    border-radius: 12px;
+}
+.rightcolumn{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.card4{
+    border: 1px solid black;
+    height: 421px;
+   width: fit-content;
+   box-sizing: border-box;
+   overflow: hidden;
+}
+.card4 img{
+    width: 95%;
+    height: 230px;
+    padding: 10px;
+    border-radius: 12px;
+   
+}
+.card4 .content4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;        
+  text-align: center;         
+  padding: 10px;
+  width: 100%;
+  max-width: 90%;  
+  max-height: 90%;           
+  margin: 0 auto;             
+  word-wrap: break-word;      
+  overflow-wrap: break-word;  
+  margin-top: -30px;
+}
+.card1,.card2,.card3,.card4{
+    background-color: #1f201f;
+    border-radius: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0 0 10px 2px;
+    transition: all 0.3s ease-in-out;
+}
+.container h3{
+    color: white;
+}
+.container p{
+    color: #bfc1bf;
+}
+.card1:hover,
+.card2:hover,
+.card3:hover,
+.card4:hover {
+  border-color: #a020f0;          
+  outline: 2px solid #c57aff;        
+  box-shadow: 0 0 15px 4px rgba(160, 32, 240, 0.4); 
+  transform: translateY(-7px); 
+  cursor: pointer;
+  
+}

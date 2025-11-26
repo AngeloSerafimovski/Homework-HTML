@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public APIs</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+   <header></header>
+<div class="nav">
+    <a href="index.html">Admin</a>
+    <a href="index.html">Blogs</a>
+</div>
+ <form id="form">
+      <label for="blogTitle">Brand</label>
+      <input
+        type="text"
+        name="blogTitle"
+        id="blogTitle"
+        placeholder="Enter title"
+        required
+      />
+      <label for="blogContent">Category</label>
+      <textarea
+        id="category"
+        placeholder="Enter your category here"
+        required
+      ></textarea>
+      <label for="blogContent">Description</label>
+      <textarea
+        id="description"
+        placeholder="Enter a description"
+      ></textarea>
+      <button type="submit">Add</button>
+    </form>
+
+
+ <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody id="storeBody">
+   
+  </tbody>
+</table>
+
+
+<script src="script.js"></script>
+</body>
+</html>

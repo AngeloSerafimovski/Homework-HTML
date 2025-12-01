@@ -1,0 +1,6 @@
+#movieForm {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    gap: 8px;
+}

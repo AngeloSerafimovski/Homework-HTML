@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domasno</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="data.js"></script>
+</head>
+<body>
+    <div class="nav">
+      <a href="index.html">Admin</a>
+      <a href="index.html">Home</a>
+    </div>
+
+    <h1 class="title">List of Movies</h1>
+
+    <form id="movieForm">
+      <label for="movieTitle">Title</label>
+      <input
+        type="text"
+        name="movieTitle"
+        id="movieTitle"
+        placeholder="Enter title"
+        required
+      />
+      <label for="movieDirector">Director</label>
+      <textarea
+        id="movieDirector"
+        placeholder="Write your Director here ..."
+        required
+      ></textarea>
+       <label for="movieRelease">Year of release</label>
+      <textarea
+        id="movieRelease"
+        placeholder="Write your year of release here ..."
+        required
+      ></textarea>
+      <button id="submit">Add Movie</button>
+      </form>
+      
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Director</th>
+                <th>Year of release</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id ="mainBody">
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<script src="script.js" defer></script>
+</body>
+</html>

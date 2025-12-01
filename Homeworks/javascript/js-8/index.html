@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+
+     <header class="border-b border-slate-800 bg-slate-800/90 text-white h-[45px]">
+  <div class="max-w-6xl mx-auto px-4 h-12 flex items-center ">
+
+  
+     <nav class="nav flex gap-4 ">
+      <a href="index.html" class="hover:text-indigo-400 transition">Admin</a>
+      <a href="index.html" class="hover:text-indigo-400 transition">Home</a>
+    </nav>
+
+  </div>
+</header>
+<main class="max-w-6xl mx-auto px-4 py-6">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+
+    <!-- LEVO -->
+    <section class="md:col-span-1">
+      <form id="form" class="bg-slate-800/90 border border-slate-700 rounded-xl p-4 space-y-3">
+        
+
+        <label for="movieTitle" class="block text-sm">Title</label>
+        <input id="movieTitle" class="w-full bg-slate-900 px-3 py-2 rounded-lg" />
+
+        <label for="movieDirector" class="block text-sm">Director</label>
+        <input id="movieDirector" class="w-full bg-slate-900 px-3 py-2 rounded-lg" />
+
+        <label for="movieDescription" class="block text-sm">Description</label>
+        <textarea id="movieDescription" class="w-full bg-slate-900 px-3 py-2 rounded-lg"></textarea>
+
+        <button id="submitBtn" class="w-full bg-indigo-600 py-2 rounded-lg">Add Movie</button>
+      </form>
+    </section>
+
+    <!-- DESNO -->
+    <section class="md:col-span-2 bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+      <h2 class="text-lg font-semibold mb-3">Movies List</h2>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm border-seperate border-spacing-y-4">
+          <thead>
+            <tr class="bg-slate-900">
+              <th class="px-3 py-2">ID</th>
+              <th class="px-3 py-2">Title</th>
+              <th class="px-3 py-2">Description</th>
+              <th class="px-3 py-2">Director</th>
+              <th class="px-3 py-2">Year</th>
+              <th class="px-3 py-2">Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="mainBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+
+ 
+
+
+        <tbody id="mainBody"></tbody>
+    </table>
+    <script src="data.js"></script>
+    <script src="script.js" defer></script>
+    </main>
+</body>
+
+</html>

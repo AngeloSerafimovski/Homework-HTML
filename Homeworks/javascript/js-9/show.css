@@ -1,0 +1,16 @@
+#episodes-main-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+#shows-main-container{
+    display: flex;
+    justify-content: center;
+}
+.cast-card{
+    border: 1px solid black;
+}
+.episode-card{
+    border: 1px solid black;
+}

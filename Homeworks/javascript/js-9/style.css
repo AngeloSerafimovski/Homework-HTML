@@ -1,53 +1,144 @@
-body {
-  margin: 0;
-  padding: 0;
+:root {
+  --bg: #020617;
+  --card-bg: #0f172a;
+  --accent: #e11d48;
+  --accent-soft: #f97316;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+  --radius: 16px;
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
 }
-header {
+
+header{
+  background-color: #0a132b;
+  height: 35px;
+}
+.hbuttons{
   display: flex;
   justify-content: center;
-  gap: 40px;
-  background-color: rgb(95, 117, 95);
-  height: 25px;
-  
+  gap: 65px;
+}
+.hbuttons a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: 0.25s ease;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+
+.searchbarContainer {
+  max-width: 900px;
+  margin: 1.5rem auto 0.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#searchBar {
+  padding: 0.75rem 1rem;
+  width: 300px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+}
+
+#searchBar:focus {
+  border-color: var(--accent-soft);
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
+}
+
+button {
+  padding: 0.75rem 1.2rem;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--accent-soft);
 }
 
 
 #shows-main-container {
+  max-width: 1300px;
+  margin: 2rem auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
 }
 
-#shows-main-container div {
-  background-color: rgb(223, 224, 220);
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: center;
-  padding: 20px;
-  border-radius: 24px;
+
+.show-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  padding-bottom: 1rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.55);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.container {
-  margin-left: 50px;
-  margin-right: 50px;
+.show-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: var(--accent-soft);
+  box-shadow: var(--shadow);
 }
 
-#casts-main-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  align-items: center;
+
+.show-card img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
 }
 
-#cast-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+
+.show-card h2 {
+  margin: 0.8rem 1rem 0.2rem;
+  font-size: 1.1rem;
 }
-.searchbarContainer{
-    display: flex;
-    align-items: center;
+
+.show-card h3 {
+  margin: 0.2rem 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+
+.show-card a {
+  margin: 0.8rem 1rem 0 1rem;
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  background: var(--accent);
+  border-radius: var(--radius);
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.show-card a:hover {
+  background: var(--accent-soft);
+}
+.fav-btn{
+  padding: 4px 8px;
 }

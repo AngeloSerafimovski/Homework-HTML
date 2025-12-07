@@ -29,8 +29,22 @@ function renderShows() {
     showCard.appendChild(showGenr);
 
     const showRait = document.createElement("h3");
-    showRait.innerText = show.rating.average;
+showRait.innerHTML = `
+  ${show.rating.average} 
+  ${
+    show.rating.average > 8
+      ? "⭐"
+      : "✩"
+  }
+`;
+
+
+showCard.appendChild(showRait);
     showCard.appendChild(showRait);
+
+
+    const buttonsWrapper = document.createElement("div");
+buttonsWrapper.className = "card-buttons";
 
     const showView = document.createElement("a");
    showView.href = `show.html?id=${show.id}`;
@@ -42,9 +56,19 @@ function renderShows() {
          window.location.href = `show.html?id=${show.id}`
     })
     
+const favBtn = document.createElement("button");
+favBtn.className = "fav-btn";
+favBtn.innerText = "♡ Favorite";
 
+// ovde sprecuva aktiviranje na kartata
+favBtn.addEventListener("click", (event) => {
+  event.stopPropagation();  // ova e mn vazno 
+  addToFavorites(show);
+});
+showCard.appendChild(favBtn);
 
     showCard.appendChild(showView)
+    showCard.appendChild(buttonsWrapper);
     
 
     mainShowContainer.appendChild(showCard);
@@ -70,3 +94,15 @@ document
     filterShows();
     document.getElementById("searchBar").value = "";
   });
+
+  function addToFavorites(show) {
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  if (!favorites.some(f => f.id === show.id)) {
+    favorites.push(show);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }
+
+ alert(`${show.name} added to favorites!`);
+window.location.href = "favorites.html";
+}

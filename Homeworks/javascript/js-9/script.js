@@ -8,92 +8,108 @@ fetch("https://api.tvmaze.com/shows")
     renderShows(shows);
   });
 
-function renderShows() {
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+const userGreeting = document.getElementById("userGreeting");
+
+if (currentUser && userGreeting) {
+  userGreeting.innerHTML = `
+    <i class="fa-solid fa-id-badge"></i>
+    Hello ${currentUser.username}!
+  `;
+}
+function renderShows(list) {
   const mainShowContainer = document.getElementById("shows-main-container");
   mainShowContainer.innerHTML = "";
 
-  shows.forEach((show) => {
+  if (!list || list.length === 0) {
+    mainShowContainer.innerHTML = "<p>No results found</p>";
+    return;
+  }
+
+  list.forEach((show) => {
     const showCard = document.createElement("div");
-    showCard.style.cursor = "pointer"
-    showCard.className = "show-card"
+    showCard.className = "show-card";
+    showCard.style.cursor = "pointer";
+
+    // Card click -> open details page
+    showCard.addEventListener("click", () => {
+      window.location.href = `show.html?id=${show.id}`;
+    });
 
     const showImg = document.createElement("img");
-    showImg.src = show.image.medium;
+    showImg.src = show.image?.medium || "https://via.placeholder.com/210x295";
+    showImg.alt = show.name;
     showCard.appendChild(showImg);
+
     const showTitle = document.createElement("h2");
     showTitle.innerText = show.name;
     showCard.appendChild(showTitle);
 
     const showGenr = document.createElement("h3");
-    showGenr.innerText = show.genres.join(", ");
+    showGenr.innerText = (show.genres && show.genres.length > 0) ? show.genres.join(", ") : "No genres";
     showCard.appendChild(showGenr);
 
     const showRait = document.createElement("h3");
-showRait.innerHTML = `
-  ${show.rating.average} 
-  ${
-    show.rating.average > 8
-      ? "⭐"
-      : "✩"
-  }
-`;
-
-
-showCard.appendChild(showRait);
+    const avg = show.rating?.average;
+    showRait.innerHTML = `
+      ${avg ?? "N/A"} 
+      ${typeof avg === "number" && avg > 8 ? "⭐" : "✩"}
+    `;
     showCard.appendChild(showRait);
 
-
+    // Buttons wrapper
     const buttonsWrapper = document.createElement("div");
-buttonsWrapper.className = "card-buttons";
+    buttonsWrapper.className = "card-buttons";
 
-    const showView = document.createElement("a");
-   showView.href = `show.html?id=${show.id}`;
-   showView.innerText= "";
-     showView.innerText = "View";
-    showCard.addEventListener("click", () => {
-        console.log("Clicked");
-        
-         window.location.href = `show.html?id=${show.id}`
-    })
-    
-const favBtn = document.createElement("button");
-favBtn.className = "fav-btn";
-favBtn.innerText = "♡ Favorite";
+    // View button (link) - stopPropagation so it doesn't trigger card click twice
+    const viewBtn = document.createElement("a");
+    viewBtn.className = "view-btn";
+    viewBtn.href = `show.html?id=${show.id}`;
+    viewBtn.innerText = "View";
+    viewBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // anchor ke si se otvori sam(href)
+    });
 
-// ovde sprecuva aktiviranje na kartata
-favBtn.addEventListener("click", (event) => {
-  event.stopPropagation();  // ova e mn vazno 
-  addToFavorites(show);
-});
-showCard.appendChild(favBtn);
+    // Favorite button 
+    const favBtn = document.createElement("button");
+    favBtn.className = "fav-btn";
+    favBtn.innerText = "♡ Favorite";
+    favBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      addToFavorites(show);
+    });
 
-    showCard.appendChild(showView)
+    buttonsWrapper.appendChild(viewBtn);
+    buttonsWrapper.appendChild(favBtn);
+
     showCard.appendChild(buttonsWrapper);
-    
-
     mainShowContainer.appendChild(showCard);
   });
 }
 
+
 function filterShows() {
-  const searchBar = document.getElementById("searchBar");
-  const searchBarinput = searchBar.value.trim().toLowerCase();
-  console.log("prebaruvam : ", searchBarinput);
-  const filteredShows = shows.filter((show) =>
-    show.name.toLowerCase().includes(searchBarinput)
+  const searchValue = document.getElementById("searchBar").value.trim().toLowerCase();
+  console.log("prebaruvam:", searchValue);
+
+  const filteredShows = shows.filter(show =>
+    show.name.toLowerCase().includes(searchValue)
   );
-  console.log("Filtrirani :", filteredShows);
+
+  console.log("Filtrirani:", filteredShows);
   renderShows(filteredShows);
-  //   searchBar.value = "";
 }
-// za lajv da pisuvame
+
+// live search
 document.getElementById("searchBar").addEventListener("input", filterShows);
-document
-  .querySelector("button[onclick='filterShows()']")
-  .addEventListener("click", () => {
-    filterShows();
-    document.getElementById("searchBar").value = "";
-  });
+
+// click search
+document.getElementById("searchBtn").addEventListener("click", () => {
+  filterShows();
+  document.getElementById("searchBar").value = "";
+});
 
   function addToFavorites(show) {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -105,4 +121,15 @@ document
 
  alert(`${show.name} added to favorites!`);
 window.location.href = "favorites.html";
+}
+JSON.parse(localStorage.getItem("currentUser"))
+
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("currentUser");
+    window.location.href = "login.html";
+  });
 }

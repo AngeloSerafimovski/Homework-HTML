@@ -27,6 +27,7 @@ header{
   border-radius: 8px;
   transition: 0.25s ease;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -34,10 +35,11 @@ body {
   color: var(--text);
   font-family: system-ui, sans-serif;
   min-height: 100vh;
-  padding-bottom: 3rem;
 }
 
-
+.site-footer{
+  margin-top: auto;
+}
 .searchbarContainer {
   max-width: 900px;
   margin: 1.5rem auto 0.5rem;
@@ -76,7 +78,74 @@ button {
 button:hover {
   background: var(--accent-soft);
 }
+.site-footer {
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  margin-top: 60px;
+}
 
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
+.footer-left h3 {
+  color: var(--text);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.footer-left p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+.footer-center {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-center a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+}
+
+.footer-center:hover{
+  cursor: pointer;
+}
+
+.footer-center a:hover {
+  color: var(--text);
+}
+
+.footer-center a:hover::after {
+  width: 100%;
+}
+
+
+.footer-right span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
 #shows-main-container {
   max-width: 1300px;
@@ -141,4 +210,38 @@ button:hover {
 }
 .fav-btn{
   padding: 4px 8px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer {
+  margin-top: auto; 
+}
+.hbuttons .header-right{
+  display: flex;
+  justify-content: end;
+}
+.header-right {
+  position: absolute;
+  right: 24px;   
+}
+#logoutBtn{
+ background: transparent;
+}
+#logoutBtn:hover i {
+  transform: translateX(4px);
+}
+#userGreeting {
+   position: absolute;
+  left: 24px;              
+  font-weight: 500;
+  color: var(--text);
+
 }

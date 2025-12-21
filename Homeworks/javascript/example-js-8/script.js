@@ -45,6 +45,8 @@ function uuidv4() {
 movieForm.addEventListener("submit", function (e) {
   e.preventDefault(); // да не рефрешира страна
 
+  // so ova sum napravil ADD, bidejki ===
+  // a so !== sum pritisnal edit
   if (editId === null){
     const newMovie = {
     id: crypto.randomUUID(),

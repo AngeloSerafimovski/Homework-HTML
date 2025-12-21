@@ -51,6 +51,7 @@ document.querySelectorAll("p").forEach ( p => {
 
 //znaci ako sakame da smenime samo eden odime obicno a ako sakame da gi pomineme site na pr paragrafi odime so foreach?
 // zosto vo negovo reshenie (res) e staveno vo zagrada
+// queryallselector mi izgleda kako nesto sto ke se koristi cesto?
 
  btn.addEventListener("mouseover", () => {
     btn.classList.add("btn-hover");

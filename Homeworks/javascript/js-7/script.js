@@ -7,14 +7,14 @@ let products = JSON.parse(localStorage.getItem("products")) || [];
 
 // FETCH DO FAKESTORE API
 fetch("https://fakestoreapi.com/products")
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     products = data; // gi cuvame site produkti
     console.log("DATA:", data);
     localStorage.setItem("products", JSON.stringify(products));
-    renderTable();   // go crtame
+    renderTable(); // go crtame
   })
-  .catch(err => console.error(err));
+  .catch((err) => console.error(err));
 
 function uuidv4() {
   return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
@@ -25,7 +25,7 @@ function uuidv4() {
   );
 }
 
-document.getElementById("form").addEventListener("submit",function(e){
+document.getElementById("form").addEventListener("submit", function (e) {
   e.preventDefault(); //sto pravi ove i shto pravi function(e)?
   console.log(e);
 
@@ -33,27 +33,25 @@ document.getElementById("form").addEventListener("submit",function(e){
     id: uuidv4(),
     title,
     description,
-
   };
-  
-console.log(newItem);
 
-products.push(newItem);
+  console.log(newItem);
 
-document.getElementById("tdTitle").value = "";
-document.getElementById("tdDescription").value = "";
+  products.push(newItem);
 
+  document.getElementById("tdTitle").value = "";
+  document.getElementById("tdDescription").value = "";
+});
+function deleteProduct(id) {
+  products = products.filter((product) => product.id !== id);
+  console.log("delete with id: ", id);
+  renderTable();
+}
 
-
-})
-  
-
-
-
-  function renderTable() {
+function renderTable() {
   tbody.innerHTML = "";
 
-  products.forEach(product => {
+  products.forEach((product) => {
     const tr = document.createElement("tr");
 
     // ID
@@ -82,34 +80,24 @@ document.getElementById("tdDescription").value = "";
     // DELETE
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
-     deleteButton.addEventListener("click",() => {
-      products = products.filter((x) => x.id !== product.id);
-      renderTable();
-    });
-    
+    deleteBtn.addEventListener("click", deleteProduct(product.id));
 
     // EDIT
     const editBtn = document.createElement("button");
     editBtn.textContent = "Edit";
-   
 
     tdActions.appendChild(editBtn);
+    tdActions.appendChild(deleteBtn);
 
     tr.appendChild(tdActions);
 
     tbody.appendChild(tr);
   });
 }
-function deleteProduct(id) {
-  products = products.filter(product => product.id !== id);
-  console.log("delete with id: ", id);
-  renderTable();
-}
+
 
 function startEdit(id) {
   console.log("Editing product:", id);
 }
-
-
 
 //ne mi funkcioniraat

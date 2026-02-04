@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="mk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Newton Forma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+
+  <body class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+  <form action="/newton" method="post" class="bg-white p-6 rounded-xl shadow-md w-full max-w-sm space-y-4">
+    <h1 class="text-2xl font-bold text-gray-800">Newton Kalkulator</h1>
+
+    <input type="number" name="masa" placeholder="Masa (kg)" required
+      class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+    <input type="number" name="zabrzuvanje" placeholder="Zabrzuvanje (m/s²)" required
+      class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+    <button type="submit"
+      class="w-full bg-blue-600 text-white rounded-lg py-2 font-semibold hover:bg-blue-700 transition">
+      Presmetaj
+    </button>
+  </form>
+</body>
+
+
+
+</html>
